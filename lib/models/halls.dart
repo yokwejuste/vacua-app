@@ -28,4 +28,21 @@ class Halls {
     required this.building,
     required this.createdBy,
   });
+
+
+  factory Halls.fromJson(Map<String, dynamic> json){
+    return Halls(
+      hallName: json['hall_name'],
+      hallId: json['hall_id'],
+      capacity: json['capacity'],
+      longitude: json['longitude'],
+      latitude: json['latitude'],
+      school: json['school'],
+      isAvailable: json['is_available'],
+      createdAt: json['created_at'],
+      gMapLink: json['g_map_link'],
+      building: json['building'],
+      createdBy: json['created_by'],
+    );
+  }
 }
