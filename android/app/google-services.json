@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "616155940286",
+    "project_id": "vacua-app",
+    "storage_bucket": "vacua-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616155940286:android:5a059084c8349f9e1365ef",
+        "android_client_info": {
+          "package_name": "com.example.vacua_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616155940286-56knvjmdqiffv0odt7fs7m3n3l3eo1lc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn9fzn106p3tnmElsbq1ZxlD6DmrfQ6WU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616155940286-56knvjmdqiffv0odt7fs7m3n3l3eo1lc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
