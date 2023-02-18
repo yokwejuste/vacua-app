@@ -1,6 +1,5 @@
 import "package:cloud_firestore/cloud_firestore.dart";
 import "package:flutter/foundation.dart";
-import "package:flutter/material.dart";
 
 class User {
   late String userId;
@@ -32,6 +31,7 @@ class User {
     required this.createdAt,
     required this.dateOfBirth,
     required this.createdBy,
+    
     whatsappGroup,
   });
 }
