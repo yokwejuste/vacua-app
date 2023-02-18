@@ -29,4 +29,19 @@ class Reservations {
 
     courseDescription,
   });
+
+  factory Reservations.fromJson(Map<String, dynamic> json){
+    return Reservations(
+      reservationId: json['reservation_id'],
+      courseCode: json['course_code'],
+      courseTitle: json['course_title'],
+      lecturer: json['lecturer'],
+      reservationDate: json['reservation_date'],
+      startTime: json['start_time'],
+      endTime: json['end_time'],
+      userId: json['user_id'],
+      isComplete: json['is_complete'],
+      courseDescription: json['course_description'],
+    );
+  }
 }

@@ -34,4 +34,24 @@ class User {
     
     whatsappGroup,
   });
+
+
+  factory User.fromJson(Map<String, dynamic> json){
+    return User(
+      userId: json['user_id'],
+      username: json['username'],
+      email: json['email'],
+      phone: json['phone'],
+      name: json['name'],
+      department: json['department'],
+      type: json['type'],
+      school: json['school'],
+      gender: json['gender'],
+      level: json['level'],
+      createdAt: json['created_at'],
+      dateOfBirth: json['date_of_birth'],
+      createdBy: json['created_by'],
+      whatsappGroup: json['whatsapp_group'],
+    );
+  }
 }
