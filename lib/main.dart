@@ -6,7 +6,6 @@ import 'firebase_options.dart';
 //screens
 
 import 'package:vacua_app/screens/loginScreen.dart';
-
 import 'screens/profileScreen.dart';
 
 void main() async {

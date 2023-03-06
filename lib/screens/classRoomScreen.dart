@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vacua_app/screens/homeScreen.dart';
-
 import 'settingsWidget.dart';
 
 class ClassRooms extends StatefulWidget {
@@ -23,7 +22,6 @@ class _ClassRoomsState extends State<ClassRooms> {
           color: Colors.red,
         ),
       ),
-      const SettingsPage(),
     ];
     final navBarItem = <BottomNavigationBarItem>[
       BottomNavigationBarItem(
