@@ -1,5 +1,5 @@
 import "package:cloud_firestore/cloud_firestore.dart";
-import "package:flutter/material.dart";
+import "package:flutter/foundation.dart";
 
 class User {
   late String userId;
@@ -15,6 +15,7 @@ class User {
   late Timestamp createdAt;
   late Timestamp dateOfBirth;
   late String whatsappGroup;
+  late String createdBy;
 
   User({
     required this.userId,
@@ -29,6 +30,28 @@ class User {
     required this.school,
     required this.createdAt,
     required this.dateOfBirth,
-    required this.whatsappGroup,
+    required this.createdBy,
+    
+    whatsappGroup,
   });
+
+
+  factory User.fromJson(Map<String, dynamic> json){
+    return User(
+      userId: json['user_id'],
+      username: json['username'],
+      email: json['email'],
+      phone: json['phone'],
+      name: json['name'],
+      department: json['department'],
+      type: json['type'],
+      school: json['school'],
+      gender: json['gender'],
+      level: json['level'],
+      createdAt: json['created_at'],
+      dateOfBirth: json['date_of_birth'],
+      createdBy: json['created_by'],
+      whatsappGroup: json['whatsapp_group'],
+    );
+  }
 }
