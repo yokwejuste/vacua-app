@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   String errorText = "";
 
   Future<void> _navigateToNextPage(BuildContext context) async {
-    await Navigator.of(context).push(
+    await Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (context) => const ClassRooms(),
       ),
@@ -40,12 +40,11 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/background.png"),
-                fit: BoxFit.cover,
-                alignment: Alignment.center,
-                opacity: 1.0,
-                colorFilter: ColorFilter.linearToSrgbGamma()
-              ),
+                  image: AssetImage("assets/images/background.png"),
+                  fit: BoxFit.cover,
+                  alignment: Alignment.center,
+                  opacity: 1.0,
+                  colorFilter: ColorFilter.linearToSrgbGamma()),
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(

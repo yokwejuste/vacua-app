@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
-import 'package:google_fonts/google_fonts.dart';
+import 'pack
+import '../components/classBoxesWidget.dart';
 
 class MainHomePage extends StatefulWidget {
   const MainHomePage({super.key});
@@ -49,21 +50,32 @@ class _MainHomePageState extends State<MainHomePage> {
                   ],
                 ),
               ),
-              const IconTheme(
-                data: IconThemeData(
-                  color: Color(0xFF585858),
-                  size: 30.0,
-                  weight: 40.0,
-                ),
-                child: Icon(
-                  Icons.search,
-                  color: Color(0xFF585858),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, "/profile");
+                },
+                child: Container(
+                  height: 40.0,
+                  width: 40.0,
+                  margin: EdgeInsets.only(
+                    right: MediaQuery.of(context).size.width * 0.06,
+                  ),
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage("assets/images/default.png"),
+                      fit: BoxFit.fill,
+                      alignment: Alignment.center,
+                    ),
+                  ),
                 ),
               ),
             ],
           ),
           Container(
-            margin:const EdgeInsets.only(top: 10,),
+            margin: const EdgeInsets.only(
+              top: 10,
+            ),
             padding: const EdgeInsets.symmetric(
               vertical: 20.0,
             ),
@@ -204,200 +216,10 @@ class _MainHomePageState extends State<MainHomePage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
                 ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: <Widget>[
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 150, 148, 148),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.03),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.03),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.03),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.03),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.03),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.03),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.03),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.016,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.03,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+                const ClassBoxWidget(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.0265,
+                ),
                 Text(
                   "Free",
                   style: GoogleFonts.openSans(
@@ -407,189 +229,9 @@ class _MainHomePageState extends State<MainHomePage> {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
+                  height: MediaQuery.of(context).size.height * 0.02,
                 ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: <Widget>[
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 150, 148, 148),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.03),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.03),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.03),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.03),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.03),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.03),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.03),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 152, 152, 152),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Hello",
-                              style: GoogleFonts.openSans(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                )
+                const ClassBoxWidget(),
               ],
             ),
           ),

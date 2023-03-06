@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vacua_app/screens/homeScreen.dart';
+import 'settingsWidget.dart';
 
 class ClassRooms extends StatefulWidget {
   const ClassRooms({super.key});
@@ -14,20 +15,13 @@ class _ClassRoomsState extends State<ClassRooms> {
   Widget build(BuildContext context) {
     final pages = [
       const MainHomePage(),
-      Center(
-        child: Icon(
-          Icons.search,
-          size: 50,
-          color: Colors.blue,
-        ),
-      ),
-      Center(
+      const Center(
         child: Icon(
           Icons.person,
           size: 50,
           color: Colors.red,
         ),
-      )
+      ),
     ];
     final navBarItem = <BottomNavigationBarItem>[
       BottomNavigationBarItem(
@@ -100,6 +94,7 @@ class _ClassRoomsState extends State<ClassRooms> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30.0),
         child: BottomNavigationBar(
+          backgroundColor: Theme.of(context).primaryColor,
           selectedItemColor: Colors.white,
           unselectedItemColor: Color.fromARGB(255, 216, 216, 216),
           selectedIconTheme: IconThemeData(
@@ -107,7 +102,7 @@ class _ClassRoomsState extends State<ClassRooms> {
           ),
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          backgroundColor: const Color(0xFF845EC2),
+          // backgroundColor: const Color(0xFF845EC2),
           currentIndex: _index,
           items: navBarItem,
           onTap: (int index) {

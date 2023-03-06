@@ -1,17 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'components/pallete.dart';
 import 'firebase_options.dart';
 
 //screens
 
 import 'package:vacua_app/screens/loginScreen.dart';
+import 'screens/profileScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
-    const MaterialApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Palette.myPaletteLight,
+        brightness: Brightness.light,
+      ),
+      darkTheme: ThemeData(
+        primarySwatch: Palette.myPaletteDark,
+        brightness: Brightness.dark,
+      ),
+      themeMode: ThemeMode.system,
       home: MyApp(),
+      initialRoute: '/',
+      routes: {
+        '/login': (context) => const LoginScreen(),
+        '/profile':(context) => const ProfileScreen(),
+      },
     ),
   );
 }
