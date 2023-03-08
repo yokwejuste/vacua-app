@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'pack
+import 'package:google_fonts/google_fonts.dart';
 import '../components/classBoxesWidget.dart';
 
 class MainHomePage extends StatefulWidget {

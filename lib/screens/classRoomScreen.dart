@@ -22,6 +22,7 @@ class _ClassRoomsState extends State<ClassRooms> {
           color: Colors.red,
         ),
       ),
+      const SettingsPage(),
     ];
     final navBarItem = <BottomNavigationBarItem>[
       BottomNavigationBarItem(
@@ -85,7 +86,7 @@ class _ClassRoomsState extends State<ClassRooms> {
         label: "Profile",
       ),
     ];
-    assert(pages.length == navBarItem.length);
+
     final bottomNavbar = Container(
       margin: const EdgeInsets.symmetric(
         horizontal: 20.0,
