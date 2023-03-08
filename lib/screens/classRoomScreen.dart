@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vacua_app/screens/homeScreen.dart';
-import 'settingsWidget.dart';
+import 'settingsPage.dart';
 
 class ClassRooms extends StatefulWidget {
   const ClassRooms({super.key});
