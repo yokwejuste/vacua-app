@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:vacua_app/constants/colors.dart";
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -108,22 +109,34 @@ class _SettingsPageState extends State<SettingsPage> {
           const SizedBox(
             height: 10,
           ),
-          DropdownButton(
-              value: _dropDownValue,
-              items: <String>["English", "French "]
-                  .map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value,
-                      style:
-                          const TextStyle(fontSize: 20.0, color: Colors.grey)),
-                );
-              }).toList(),
-              onChanged: (String? value) {
-                setState(() {
-                  _dropDownValue = value!;
-                });
-              }),
+          Row(
+            children: [
+              Text(
+                AppLocalizations.of(context)!.language,
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 20.0,
+                ),
+              ),
+              Expanded(child: Container()),
+              DropdownButton(
+                  value: _dropDownValue,
+                  items: <String>["English", "French "]
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value,
+                          style: const TextStyle(
+                              fontSize: 20.0, color: Colors.grey)),
+                    );
+                  }).toList(),
+                  onChanged: (String? value) {
+                    setState(() {
+                      _dropDownValue = value!;
+                    });
+                  }),
+            ],
+          ),
           const SizedBox(
             height: 10,
           ),
