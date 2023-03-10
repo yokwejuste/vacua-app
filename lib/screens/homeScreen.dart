@@ -16,7 +16,6 @@ class _MainHomePageState extends State<MainHomePage> {
     return SafeArea(
       child: ListView(
         padding: const EdgeInsets.all(8.0),
-        physics: const NeverScrollableScrollPhysics(),
         children: <Widget>[
           const SizedBox(
             height: 20.0,
