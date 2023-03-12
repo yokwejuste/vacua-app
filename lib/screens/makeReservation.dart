@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class MakeReservation extends StatelessWidget {
@@ -7,6 +5,14 @@ class MakeReservation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: const Center(
+        child: Icon(
+          Icons.school,
+          size: 100,
+          color: Colors.green,
+        ),
+      ),
+    );
   }
 }

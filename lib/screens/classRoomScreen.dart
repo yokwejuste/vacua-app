@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vacua_app/screens/homeScreen.dart';
+import 'package:vacua_app/screens/searchHall.dart';
 import './SettingsPage.dart';
 import 'makeReservation.dart';
 
@@ -16,15 +17,10 @@ class _ClassRoomsState extends State<ClassRooms> {
   Widget build(BuildContext context) {
     final pages = [
       const MainHomePage(),
-      const Center(
-        child: Icon(
-          Icons.person,
-          size: 50,
-          color: Colors.red,
-        ),
-      ),
+      const SearchHall(),
       const MakeReservation(),
     ];
+
     final navBarItem = <BottomNavigationBarItem>[
       BottomNavigationBarItem(
         icon: Container(
