@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vacua_app/screens/homeScreen.dart';
 import './SettingsPage.dart';
+import 'makeReservation.dart';
 
 class ClassRooms extends StatefulWidget {
   const ClassRooms({super.key});
@@ -22,7 +23,7 @@ class _ClassRoomsState extends State<ClassRooms> {
           color: Colors.red,
         ),
       ),
-      const SettingsPage(),
+      const MakeReservation(),
     ];
     final navBarItem = <BottomNavigationBarItem>[
       BottomNavigationBarItem(
@@ -31,7 +32,7 @@ class _ClassRoomsState extends State<ClassRooms> {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             gradient: _index == 0
-                ? LinearGradient(
+                ? const LinearGradient(
                     colors: [
                       Color.fromARGB(255, 217, 0, 255),
                       Color.fromARGB(255, 205, 134, 158),
@@ -39,7 +40,7 @@ class _ClassRoomsState extends State<ClassRooms> {
                   )
                 : null,
           ),
-          child: Icon(
+          child: const Icon(
             Icons.home,
           ),
         ),
@@ -47,11 +48,11 @@ class _ClassRoomsState extends State<ClassRooms> {
       ),
       BottomNavigationBarItem(
         icon: Container(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             gradient: _index == 1
-                ? LinearGradient(
+                ? const LinearGradient(
                     colors: [
                       Color.fromARGB(255, 217, 0, 255),
                       Color.fromARGB(255, 205, 134, 158),
@@ -59,19 +60,19 @@ class _ClassRoomsState extends State<ClassRooms> {
                   )
                 : null,
           ),
-          child: Icon(
-            Icons.smart_display,
+          child: const Icon(
+            Icons.search,
           ),
         ),
         label: "About",
       ),
       BottomNavigationBarItem(
         icon: Container(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             gradient: _index == 2
-                ? LinearGradient(
+                ? const LinearGradient(
                     colors: [
                       Color.fromARGB(255, 217, 0, 255),
                       Color.fromARGB(255, 205, 134, 158),
@@ -79,8 +80,8 @@ class _ClassRoomsState extends State<ClassRooms> {
                   )
                 : null,
           ),
-          child: Icon(
-            Icons.settings,
+          child: const Icon(
+            Icons.add,
           ),
         ),
         label: "Profile",
@@ -97,13 +98,12 @@ class _ClassRoomsState extends State<ClassRooms> {
         child: BottomNavigationBar(
           backgroundColor: Theme.of(context).primaryColor,
           selectedItemColor: Colors.white,
-          unselectedItemColor: Color.fromARGB(255, 216, 216, 216),
-          selectedIconTheme: IconThemeData(
+          unselectedItemColor: const Color.fromARGB(255, 216, 216, 216),
+          selectedIconTheme: const IconThemeData(
             color: Colors.white,
           ),
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          // backgroundColor: const Color(0xFF845EC2),
           currentIndex: _index,
           items: navBarItem,
           onTap: (int index) {

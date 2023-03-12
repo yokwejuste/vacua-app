@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vacua_app/screens/profileScreen.dart';
 import '../components/classBoxesWidget.dart';
+import 'SettingsPage.dart';
 
 class MainHomePage extends StatefulWidget {
   const MainHomePage({super.key});
@@ -10,9 +12,9 @@ class MainHomePage extends StatefulWidget {
 }
 
 class _MainHomePageState extends State<MainHomePage> {
-  final String user = "John Doe";
   @override
   Widget build(BuildContext context) {
+    String user = "John Doe";
     return SafeArea(
       child: ListView(
         padding: const EdgeInsets.all(8.0),
@@ -31,19 +33,20 @@ class _MainHomePageState extends State<MainHomePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Hey, $user,",
-                      style: GoogleFonts.openSans(
+                      "Hey, ${user.substring(0, 5)}!",
+                      style: const TextStyle(
                         fontSize: 22.0,
                         fontWeight: FontWeight.w700,
-                        color: const Color(0xFF585858),
+                        color: Color(0xFF585858),
                       ),
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    Text(
+                    const Text(
                       "How can I help you?",
-                      style: GoogleFonts.openSans(
+                      style: TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.w700,
-                        color: const Color(0xFF585858),
+                        color: Color(0xFF585858),
                       ),
                     ),
                   ],
@@ -51,7 +54,48 @@ class _MainHomePageState extends State<MainHomePage> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, "/profile");
+                  showMenu(
+                    context: context,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    position: RelativeRect.fromLTRB(
+                      MediaQuery.of(context).size.width * 0.8,
+                      MediaQuery.of(context).size.height * 0.1,
+                      MediaQuery.of(context).size.width * 0.1,
+                      MediaQuery.of(context).size.height * 0.1,
+                    ),
+                    items: <PopupMenuEntry>[
+                      PopupMenuItem(
+                        child: const Text("Profile"),
+                        onTap: () {
+                          Navigator.pushNamed(context, '/profile');
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const ProfileScreen(),
+                            ),
+                          );
+                        },
+                      ),
+                      PopupMenuItem(
+                        child: const Text("Settings"),
+                        onTap: () {
+                          Navigator.pushNamed(context, '/settings');
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const SettingsPage(),
+                            ),
+                          );
+                        },
+                      ),
+                      PopupMenuItem(
+                        child: const Text("Logout"),
+                        onTap: () {
+                          // Navigator.pushNamed(context, '/login');
+                        },
+                      ),
+                    ],
+                  );
                 },
                 child: Container(
                   height: 40.0,
@@ -126,66 +170,66 @@ class _MainHomePageState extends State<MainHomePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         "Hall Information",
-                        style: GoogleFonts.openSans(
+                        style: TextStyle(
                           fontSize: 13.0,
                           fontWeight: FontWeight.w700,
-                          color: const Color(0xFFFFFFFF),
+                          color: Color(0xFFFFFFFF),
                           decoration: TextDecoration.underline,
                           decorationThickness: 2.0,
-                          decorationColor: const Color(0xFFFFFFFF),
+                          decorationColor: Color(0xFFFFFFFF),
                         ),
                       ),
-                      Text(
+                      const Text(
                         "School: NAHPI",
-                        style: GoogleFonts.openSans(
+                        style: TextStyle(
                           fontSize: 13.0,
                           fontWeight: FontWeight.w700,
-                          color: const Color(0xFFFFFFFF),
+                          color: Color(0xFFFFFFFF),
                         ),
                       ),
-                      Text(
+                      const Text(
                         "School: NAHPI",
-                        style: GoogleFonts.openSans(
+                        style: TextStyle(
                           fontSize: 13.0,
                           fontWeight: FontWeight.w700,
-                          color: const Color(0xFFFFFFFF),
+                          color: Color(0xFFFFFFFF),
                         ),
                       ),
-                      Text(
+                      const Text(
                         "Building: NAHPI",
-                        style: GoogleFonts.openSans(
+                        style: TextStyle(
                           fontSize: 13.0,
                           fontWeight: FontWeight.w700,
-                          color: const Color(0xFFFFFFFF),
+                          color: Color(0xFFFFFFFF),
                         ),
                       ),
-                      Text(
+                      const Text(
                         "Hall: Hall 3",
-                        style: GoogleFonts.openSans(
+                        style: TextStyle(
                           fontSize: 13.0,
                           fontWeight: FontWeight.w700,
-                          color: const Color(0xFFFFFFFF),
+                          color: Color(0xFFFFFFFF),
                         ),
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.02,
                       ),
-                      Text(
+                      const Text(
                         "Time: 9:30am - 11:30am",
-                        style: GoogleFonts.openSans(
+                        style: TextStyle(
                           fontSize: 13.0,
                           fontWeight: FontWeight.w700,
-                          color: const Color(0xFFFFFFFF),
+                          color: Color(0xFFFFFFFF),
                         ),
                       ),
-                      Text(
+                      const Text(
                         "Class: COME Level 300",
-                        style: GoogleFonts.openSans(
+                        style: TextStyle(
                           fontSize: 13.0,
                           fontWeight: FontWeight.w700,
-                          color: const Color(0xFFFFFFFF),
+                          color: Color(0xFFFFFFFF),
                         ),
                       ),
                     ],
