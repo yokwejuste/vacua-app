@@ -5,12 +5,14 @@ class SearchHall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Center(
-        child: Icon(
-          Icons.search,
-          size: 100,
-          color: Colors.red,
+    return SafeArea(
+      child: Container(
+        child: const Center(
+          child: Icon(
+            Icons.search,
+            size: 100,
+            color: Colors.red,
+          ),
         ),
       ),
     );
