@@ -20,23 +20,32 @@ class _ClassBoxWidgetState extends State<ClassBoxWidget> {
         itemCount: 20,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-              width: 150.0,
-              decoration: BoxDecoration(
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.orange
-                    : Colors.grey,
-                borderRadius: BorderRadius.circular(25.0),
-              ),
-              child: Center(
-                child: Text(
-                  "Hello",
-                  style: GoogleFonts.openSans(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                  ),
+            width: 150.0,
+            decoration: BoxDecoration(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.orange
+                  : Colors.grey,
+              borderRadius: BorderRadius.circular(25.0),
+            ),
+            child: ListTile(
+              title: Text(
+                "Class ${index + 1}",
+                style: GoogleFonts.mcLaren(
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.black,
                 ),
-              ));
+              ),
+              subtitle: Text(
+                "Class ${index + 1} description",
+                style: GoogleFonts.mcLaren(
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.black,
+                ),
+              ),
+            )
+          );
         },
         separatorBuilder: (BuildContext context, int index) {
           return const SizedBox(

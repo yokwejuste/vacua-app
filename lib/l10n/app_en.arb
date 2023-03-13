@@ -1,7 +1,11 @@
 {
     "language": "Language",
     "@language": {
-      "description": "Language of the app"
+      "description": "Language of the app",
+      "values": {
+        "en": "English",
+        "de": "Deutsch"
+      }
     },
     "welcome": "Welcome",
     "email": "Email",
@@ -18,5 +22,7 @@
     "theme": "Theme",
     "theme_text": "Dark Mode",
     "note": "Note",
-    "note_text": "Give us feedback"
+    "note_text": "Give us feedback",
+    "about": "About"
+
 }

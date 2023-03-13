@@ -24,7 +24,7 @@ class _ClassRoomsState extends State<ClassRooms> {
     final navBarItem = <BottomNavigationBarItem>[
       BottomNavigationBarItem(
         icon: Container(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             gradient: _index == 0

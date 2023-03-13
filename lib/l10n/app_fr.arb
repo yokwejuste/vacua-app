@@ -1,5 +1,13 @@
 {
     "language": "Langue",
+    "@language": {
+        "description": "Choisissez votre langue",
+        "options": {
+            "en": "English",
+            "fr": "Français"
+        }
+    },
+    "welcome": "Bienvenue",
     "email": "Email",
     "password": "Mot de passe",
     "login": "Connexion",
@@ -14,5 +22,6 @@
     "theme": "Thème",
     "theme_text": "Mode sombre",
     "note": "Note",
-    "note_text": "Donnez-nous vos commentaires"
+    "note_text": "Donnez-nous vos commentaires",
+    "about": "À propos"
 }
