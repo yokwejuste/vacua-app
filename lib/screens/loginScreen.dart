@@ -3,8 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../components/buttonWidget.dart';
 import '../components/inputWidget.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:vacua_app/constants/colors.dart';
 import '../services/AuthService.dart';
 import 'classRoomScreen.dart';
 // App localizations

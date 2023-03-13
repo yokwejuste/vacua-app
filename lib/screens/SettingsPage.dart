@@ -126,7 +126,9 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                           Theme.of(context).primaryColor),
                       value: _isDark,
                       onChanged: (bool value) {
-                        setState(() {});
+                        setState(() {
+                          _isDark = value;
+                        });
                       },
                     )
                   ],

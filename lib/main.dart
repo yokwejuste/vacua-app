@@ -7,7 +7,6 @@ import 'package:vacua_app/screens/SettingsPage.dart';
 import 'package:vacua_app/screens/classRoomScreen.dart';
 import 'components/pallete.dart';
 import './firebase_options.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 //screens
@@ -26,7 +25,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(ProviderScope(
+  runApp(const ProviderScope(
     child: MyApp(),
   ));
 }
@@ -36,6 +35,7 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeModeProvider);
     Future.delayed(
         const Duration(
           seconds: 3,
@@ -52,15 +52,19 @@ class MyApp extends ConsumerWidget {
         primarySwatch: Palette.myPaletteLight,
         brightness: Brightness.light,
         textTheme: GoogleFonts.mcLarenTextTheme(Theme.of(context).textTheme),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       darkTheme: ThemeData(
         primarySwatch: Palette.myPaletteDark,
         brightness: Brightness.dark,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       themeMode: ThemeMode.system,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: ref.watch(localeProvider),
+      locale: ref.watch(
+        localeProvider,
+      ),
       home: const ClassRooms(),
       initialRoute: '/login',
       routes: {
@@ -71,3 +75,9 @@ class MyApp extends ConsumerWidget {
     );
   }
 }
+
+final themeModeProvider = StateProvider<ThemeMode>((ref) => ThemeMode.system);
+final isDarkModeProvider = Provider<bool>((ref) {
+  final themeMode = ref.watch(themeModeProvider);
+  return themeMode == ThemeMode.dark;
+});
