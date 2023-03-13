@@ -1,17 +1,21 @@
+import "dart:ui";
+
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+// App localizations
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import "../constants/fonts.dart";
+import "../main.dart";
 
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends ConsumerStatefulWidget {
   const SettingsPage({super.key});
 
   @override
-  State<SettingsPage> createState() => _SettingsPageState();
+  ConsumerState<SettingsPage> createState() => _SettingsPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
+class _SettingsPageState extends ConsumerState<SettingsPage> {
   bool _darkMode = false;
   String _dropDownValue = "English";
   bool _enableNotification = false;
@@ -19,6 +23,8 @@ class _SettingsPageState extends State<SettingsPage> {
 
   bool _isSwitched = false;
   bool _isDark = false;
+
+  String selectedLanguage = window.locale.languageCode == "fr" ? "fr" : "en";
 
   @override
   Widget build(BuildContext context) {
@@ -303,6 +309,47 @@ class _SettingsPageState extends State<SettingsPage> {
                     )
                   ],
                 ),
+              ],
+            ),
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            margin: const EdgeInsets.symmetric(vertical: 10.0),
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  AppLocalizations.of(context)!.language,
+                  style: GoogleFonts.mcLaren(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                DropdownButton(
+                    value: selectedLanguage,
+                    items: const <DropdownMenuItem>[
+                      DropdownMenuItem(
+                        value: "en",
+                        child: Text("English"),
+                      ),
+                      DropdownMenuItem(
+                        value: "fr",
+                        child: Text("Francais"),
+                      ),
+                    ],
+                    onChanged: (value) {
+                      setState(() {
+                        selectedLanguage = value.toString();
+                      });
+                      ref.read(localeProvider.notifier).state = Locale(value);
+                    })
               ],
             ),
           ),
