@@ -1,6 +1,22 @@
 {
     "language": "Language",
     "@language": {
-      "description": "The conventional newborn programmer greeting"
-    }
-  }
+      "description": "Language of the app"
+    },
+    "welcome": "Welcome",
+    "email": "Email",
+    "password": "Password",
+    "login": "Login",
+    "how_can_i_help_you": "How can I help you?",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout",
+    "occupied": "Occupied",
+    "free": "Free",
+    "notifications": "Notifications",
+    "notification_text": "Recieve Notifications when a previous hall is free",
+    "theme": "Theme",
+    "theme_text": "Dark Mode",
+    "note": "Note",
+    "note_text": "Give us feedback"
+}

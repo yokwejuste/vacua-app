@@ -7,6 +7,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vacua_app/constants/colors.dart';
 import '../services/AuthService.dart';
 import 'classRoomScreen.dart';
+// App localizations
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -68,9 +70,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: MediaQuery.of(context).size.width > 600
                         ? const EdgeInsets.only(left: 30.0)
                         : const EdgeInsets.only(left: 20.0),
-                    child: const Text(
-                      "Welcome",
-                      style: TextStyle(fontSize: 30.0, color: Colors.white),
+                    child: Text(
+                      AppLocalizations.of(context)!.welcome,
+                      style:
+                          const TextStyle(fontSize: 30.0, color: Colors.white),
                     ),
                   ),
                   if (errorText != "")
@@ -82,13 +85,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   CustomInputField(
-                    hintText: "Email",
+                    hintText: AppLocalizations.of(context)!.email,
                     controller: _emailController,
                     obscureText: true,
                   ),
                   const SizedBox(height: 20.0),
                   CustomInputField(
-                    hintText: "Password",
+                    hintText: AppLocalizations.of(context)!.password,
                     obscureText: true,
                     controller: _passwordController,
                   ),
@@ -96,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   !loading
                       ? Center(
                           child: CustomButton(
-                            label: "Login",
+                            label: AppLocalizations.of(context)!.login,
                             width: 300.0,
                             height: 50.0,
                             onPressed: () async {

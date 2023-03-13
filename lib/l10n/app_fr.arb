@@ -1,3 +1,18 @@
 {
-    "language": "Langue"
+    "language": "Langue",
+    "email": "Email",
+    "password": "Mot de passe",
+    "login": "Connexion",
+    "how_can_i_help_you": "Comment puis-je vous aider ?",
+    "profile": "Profil",
+    "settings": "Paramètres",
+    "logout": "Déconnexion",
+    "occupied": "Occupé",
+    "free": "Libre",
+    "notifications": "Notifications",
+    "notification_text": "Recevez des notifications sur votre téléphone",
+    "theme": "Thème",
+    "theme_text": "Mode sombre",
+    "note": "Note",
+    "note_text": "Donnez-nous vos commentaires"
 }
