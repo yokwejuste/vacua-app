@@ -1,6 +1,16 @@
 {
     "language": "Language",
     "@language": {
-      "description": "The conventional newborn programmer greeting"
-    }
-  }
+      "description": "Language of the app"
+    },
+    "welcome": "Welcome",
+    "email": "Email",
+    "password": "Password",
+    "login": "Login",
+    "how_can_i_help_you": "How can I help you?",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout",
+    "occupied": "Occupied",
+    "free": "Free"
+}

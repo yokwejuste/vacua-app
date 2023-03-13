@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:vacua_app/screens/profileScreen.dart';
 import '../components/classBoxesWidget.dart';
 import 'SettingsPage.dart';
+// App localizations
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainHomePage extends StatefulWidget {
   const MainHomePage({super.key});
@@ -41,9 +43,9 @@ class _MainHomePageState extends State<MainHomePage> {
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const Text(
-                      "How can I help you?",
-                      style: TextStyle(
+                    Text(
+                      AppLocalizations.of(context)!.how_can_i_help_you,
+                      style: const TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.w700,
                         color: Color(0xFF585858),
@@ -67,7 +69,7 @@ class _MainHomePageState extends State<MainHomePage> {
                     ),
                     items: <PopupMenuEntry>[
                       PopupMenuItem(
-                        child: const Text("Profile"),
+                        child: Text(AppLocalizations.of(context)!.profile),
                         onTap: () {
                           Navigator.pushNamed(context, '/profile');
                           Navigator.of(context).push(
@@ -78,7 +80,7 @@ class _MainHomePageState extends State<MainHomePage> {
                         },
                       ),
                       PopupMenuItem(
-                        child: const Text("Settings"),
+                        child: Text(AppLocalizations.of(context)!.settings),
                         onTap: () {
                           Navigator.pushNamed(context, '/settings');
                           Navigator.of(context).push(
@@ -89,7 +91,7 @@ class _MainHomePageState extends State<MainHomePage> {
                         },
                       ),
                       PopupMenuItem(
-                        child: const Text("Logout"),
+                        child: Text(AppLocalizations.of(context)!.logout),
                         onTap: () {
                           // Navigator.pushNamed(context, '/login');
                         },
@@ -249,7 +251,7 @@ class _MainHomePageState extends State<MainHomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Occupied",
+                  AppLocalizations.of(context)!.occupied,
                   style: GoogleFonts.openSans(
                     fontSize: 18.0,
                     fontWeight: FontWeight.w700,
@@ -264,7 +266,7 @@ class _MainHomePageState extends State<MainHomePage> {
                   height: MediaQuery.of(context).size.height * 0.0265,
                 ),
                 Text(
-                  "Free",
+                  AppLocalizations.of(context)!.free,
                   style: GoogleFonts.openSans(
                     fontSize: 18.0,
                     fontWeight: FontWeight.w700,
