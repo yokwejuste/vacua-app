@@ -8,5 +8,11 @@
     "settings": "Paramètres",
     "logout": "Déconnexion",
     "occupied": "Occupé",
-    "free": "Libre"
+    "free": "Libre",
+    "notifications": "Notifications",
+    "notification_text": "Recevez des notifications sur votre téléphone",
+    "theme": "Thème",
+    "theme_text": "Mode sombre",
+    "note": "Note",
+    "note_text": "Donnez-nous vos commentaires"
 }
