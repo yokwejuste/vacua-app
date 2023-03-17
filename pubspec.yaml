@@ -9,6 +9,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  provider: ^3.0.0
+  shared_preferences: any
   cupertino_icons: ^1.0.2
   firebase_core: ^2.6.1
   cloud_firestore: ^4.4.2
