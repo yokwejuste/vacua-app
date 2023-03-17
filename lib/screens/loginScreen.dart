@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
 
     // Validate email address
-    if (!User.validateEmail(_emailController.text)) {
+    if (!UserModel.validateEmail(_emailController.text)) {
       setState(() {
         errorText = "Invalid email provided";
         loading = false;

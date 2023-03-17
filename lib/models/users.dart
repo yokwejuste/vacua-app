@@ -2,9 +2,7 @@ import "package:cloud_firestore/cloud_firestore.dart";
 import "package:flutter/foundation.dart";
 
 class UserModel {
-  late String userId;
   late String username;
-  late String email;
   late String phone;
   late String name;
   late String department;
@@ -18,9 +16,7 @@ class UserModel {
   late String createdBy;
 
   UserModel({
-    required this.userId,
     required this.username,
-    required this.email,
     required this.phone,
     required this.name,
     required this.department,
@@ -36,9 +32,7 @@ class UserModel {
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
-      userId: json['user_id'],
       username: json['username'],
-      email: json['email'],
       phone: json['phone'],
       name: json['name'],
       department: json['department'],
@@ -52,6 +46,20 @@ class UserModel {
       whatsappGroup: json['whatsapp_group'],
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'username': username,
+        'phone': phone,
+        'name': name,
+        'department': department,
+        'type': type,
+        'school': school,
+        'gender': gender,
+        'level': level,
+        "createdAt": createdAt,
+        "createdBy": createdBy,
+        "whatsappGroup": whatsappGroup
+      };
 
   static bool validateEmail(String email) {
     RegExp regex = RegExp(
