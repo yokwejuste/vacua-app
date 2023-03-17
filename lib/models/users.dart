@@ -31,12 +31,10 @@ class User {
     required this.createdAt,
     required this.dateOfBirth,
     required this.createdBy,
-    
     whatsappGroup,
   });
 
-
-  factory User.fromJson(Map<String, dynamic> json){
+  factory User.fromJson(Map<String, dynamic> json) {
     return User(
       userId: json['user_id'],
       username: json['username'],
@@ -53,5 +51,14 @@ class User {
       createdBy: json['created_by'],
       whatsappGroup: json['whatsapp_group'],
     );
+  }
+
+  static bool validateEmail(String email) {
+    RegExp regex = RegExp(
+        r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
+    if (email.isEmpty || !regex.hasMatch(email)) {
+      return false;
+    }
+    return true;
   }
 }
