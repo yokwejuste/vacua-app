@@ -1,7 +1,7 @@
 import "package:cloud_firestore/cloud_firestore.dart";
 import "package:flutter/foundation.dart";
 
-class User {
+class UserModel {
   late String userId;
   late String username;
   late String email;
@@ -17,7 +17,7 @@ class User {
   late String whatsappGroup;
   late String createdBy;
 
-  User({
+  UserModel({
     required this.userId,
     required this.username,
     required this.email,
@@ -34,8 +34,8 @@ class User {
     whatsappGroup,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
       userId: json['user_id'],
       username: json['username'],
       email: json['email'],
