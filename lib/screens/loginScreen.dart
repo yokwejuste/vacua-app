@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:vacua_app/models/users.dart';
 import '../components/buttonWidget.dart';
 import '../components/inputWidget.dart';
 import '../services/AuthService.dart';
@@ -23,12 +24,42 @@ class _LoginScreenState extends State<LoginScreen> {
   bool loading = false;
   String errorText = "";
 
-  Future<void> _navigateToNextPage(BuildContext context) async {
-    await Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (context) => const ClassRooms(),
-      ),
-    );
+  Future<void> _loginUser(BuildContext context) async {
+    setState(() {
+      errorText = "";
+      loading = true;
+    });
+    if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
+      setState(() {
+        errorText = "All fields must be filled";
+        loading = false;
+      });
+      return;
+    }
+
+    // Validate email address
+    if (!User.validateEmail(_emailController.text)) {
+      setState(() {
+        errorText = "Invalid email provided";
+        loading = false;
+      });
+      return;
+    }
+
+    try {
+      await _auth.login(_emailController.text, _passwordController.text);
+      await Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => const ClassRooms(),
+        ),
+      );
+    } catch (e) {
+      setState(() {
+        errorText = e.toString();
+        loading = false;
+      });
+      return;
+    }
   }
 
   @override
@@ -85,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   CustomInputField(
                     hintText: AppLocalizations.of(context)!.email,
                     controller: _emailController,
-                    obscureText: true,
+                    obscureText: false,
                   ),
                   const SizedBox(height: 20.0),
                   CustomInputField(
@@ -101,19 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: 300.0,
                             height: 50.0,
                             onPressed: () async {
-                              setState(() {
-                                errorText = "";
-                                loading = true;
-                              });
-                              String res = await _auth.login(
-                                _emailController.text,
-                                _passwordController.text,
-                              );
-                              setState(() {
-                                errorText = res;
-                                loading = false;
-                              });
-                              await _navigateToNextPage(context);
+                              await _loginUser(context);
                             },
                           ),
                         )

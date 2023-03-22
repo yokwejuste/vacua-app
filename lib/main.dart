@@ -25,7 +25,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const ProviderScope(
+  runApp(ProviderScope(
     child: MyApp(),
   ));
 }
@@ -35,7 +35,6 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeModeProvider);
     Future.delayed(
         const Duration(
           seconds: 3,
@@ -62,9 +61,7 @@ class MyApp extends ConsumerWidget {
       themeMode: ThemeMode.system,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: ref.watch(
-        localeProvider,
-      ),
+      locale: ref.watch(localeProvider),
       home: const ClassRooms(),
       initialRoute: '/login',
       routes: {
