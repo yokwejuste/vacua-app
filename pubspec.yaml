@@ -18,6 +18,7 @@ dependencies:
     sdk: flutter
   intl: any
   flutter_riverpod: ^2.3.1
+  dio: ^5.1.0
 
 dev_dependencies:
   flutter_test:

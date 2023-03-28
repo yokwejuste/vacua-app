@@ -1,16 +1,26 @@
 import 'package:vacua_app/models/users.dart';
+import 'package:dio/dio.dart';
 
 // login services
 
 class AuthServices {
+  final _dio =
+      Dio(BaseOptions(baseUrl: "http://157.230.108.191/v1/api/console"));
   // Login user
   // will only return a string if there is an error
   Future login(String email, String password) async {
+    var data = {"email": email, "password": password};
     try {
-      //Todo - login with api
-      // Todo - get user exra details and redirect to their respective screens
+      Response res = await _dio.post("/auth/login", data: data);
+      if (res.statusCode == 200) {
+        print(res.data);
+        return res.data;
+      } else {
+        throw Exception("Invalid email or password");
+      }
     } catch (e) {
-      print(e);
+      print(e.toString());
+      throw Exception("There was a problem logging in");
     }
   }
 
