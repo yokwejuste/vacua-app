@@ -1,4 +1,3 @@
-import "package:cloud_firestore/cloud_firestore.dart";
 import "package:flutter/foundation.dart";
 
 class UserModel {
@@ -10,8 +9,8 @@ class UserModel {
   late int level;
   late String gender;
   late String school;
-  late Timestamp createdAt;
-  late Timestamp dateOfBirth;
+  late DateTime createdAt;
+  late DateTime dateOfBirth;
   late String whatsappGroup;
   late String createdBy;
 

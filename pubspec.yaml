@@ -12,9 +12,6 @@ dependencies:
   provider: ^3.0.0
   shared_preferences: any
   cupertino_icons: ^1.0.2
-  firebase_core: ^2.6.1
-  cloud_firestore: ^4.4.2
-  firebase_auth: ^4.2.8
   google_fonts: ^4.0.3
   flutter_svg: ^2.0.2
   flutter_localizations:

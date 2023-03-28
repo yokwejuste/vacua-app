@@ -1,12 +1,10 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vacua_app/screens/SettingsPage.dart';
 import 'package:vacua_app/screens/classRoomScreen.dart';
 import 'components/pallete.dart';
-import './firebase_options.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 //screens
@@ -20,11 +18,8 @@ final localeProvider = StateProvider<Locale>((ref) {
       : const Locale('en', '');
 });
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   runApp(ProviderScope(
     child: MyApp(),
   ));
