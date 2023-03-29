@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:vacua_app/models/users.dart';
 import 'package:vacua_app/screens/SettingsPage.dart';
 import 'package:vacua_app/screens/classRoomScreen.dart';
 import 'components/pallete.dart';
@@ -17,6 +18,8 @@ final localeProvider = StateProvider<Locale>((ref) {
       ? const Locale('fr', '')
       : const Locale('en', '');
 });
+
+final userProvider = StateProvider<UserModel?>((ref) => null);
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

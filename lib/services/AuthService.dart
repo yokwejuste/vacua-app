@@ -13,14 +13,20 @@ class AuthServices {
     try {
       Response res = await _dio.post("/auth/login", data: data);
       if (res.statusCode == 200) {
-        print(res.data);
-        return res.data;
+        UserModel user = UserModel.fromJson(res.data);
+        return user;
       } else {
         throw Exception("Invalid email or password");
       }
+    } on DioError catch (e) {
+      print(e.response);
+      if (e.response?.statusCode == 400) {
+        throw Exception("Invalid email or password");
+      } else {
+        throw Exception("There was a problem logging in");
+      }
     } catch (e) {
       print(e.toString());
-      throw Exception("There was a problem logging in");
     }
   }
 
