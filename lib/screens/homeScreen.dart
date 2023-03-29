@@ -1,22 +1,24 @@
 import "package:flutter/material.dart";
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vacua_app/main.dart';
 import 'package:vacua_app/screens/profileScreen.dart';
 import '../components/classBoxesWidget.dart';
 import 'SettingsPage.dart';
 // App localizations
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class MainHomePage extends StatefulWidget {
+class MainHomePage extends ConsumerStatefulWidget {
   const MainHomePage({super.key});
 
   @override
-  State<MainHomePage> createState() => _MainHomePageState();
+  MainHomePageState createState() => MainHomePageState();
 }
 
-class _MainHomePageState extends State<MainHomePage> {
+class MainHomePageState extends ConsumerState<MainHomePage> {
   @override
   Widget build(BuildContext context) {
-    String user = "John Doe";
+    String user = ref.read(userProvider)!.fullName;
     return SafeArea(
       child: ListView(
         padding: const EdgeInsets.all(8.0),
@@ -283,5 +285,5 @@ class _MainHomePageState extends State<MainHomePage> {
         ],
       ),
     );
-  } 
+  }
 }
