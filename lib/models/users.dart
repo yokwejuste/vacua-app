@@ -1,56 +1,39 @@
-import "package:cloud_firestore/cloud_firestore.dart";
+import "dart:convert";
+
 import "package:flutter/foundation.dart";
+import "package:flutter_secure_storage/flutter_secure_storage.dart";
 
-class User {
-  late String userId;
-  late String username;
+class UserModel {
+  late String id;
+  final String token;
   late String email;
-  late String phone;
-  late String name;
-  late String department;
-  late String type;
-  late int level;
-  late String gender;
-  late String school;
-  late Timestamp createdAt;
-  late Timestamp dateOfBirth;
-  late String whatsappGroup;
-  late String createdBy;
+  late String fullName;
 
-  User({
-    required this.userId,
-    required this.username,
+  final storage = new FlutterSecureStorage();
+
+  UserModel({
+    required this.id,
+    required this.token,
     required this.email,
-    required this.phone,
-    required this.name,
-    required this.department,
-    required this.type,
-    required this.level,
-    required this.gender,
-    required this.school,
-    required this.createdAt,
-    required this.dateOfBirth,
-    required this.createdBy,
-    whatsappGroup,
+    required this.fullName,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-      userId: json['user_id'],
-      username: json['username'],
-      email: json['email'],
-      phone: json['phone'],
-      name: json['name'],
-      department: json['department'],
-      type: json['type'],
-      school: json['school'],
-      gender: json['gender'],
-      level: json['level'],
-      createdAt: json['created_at'],
-      dateOfBirth: json['date_of_birth'],
-      createdBy: json['created_by'],
-      whatsappGroup: json['whatsapp_group'],
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      id: json['user']['id'],
+      token: json['access_token'],
+      email: json['user']['email'],
+      fullName: json['user']['full_name'],
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "token": token,
+      "email": email,
+      "fullName": fullName,
+    };
   }
 
   static bool validateEmail(String email) {
@@ -60,5 +43,10 @@ class User {
       return false;
     }
     return true;
+  }
+
+  //write to secure storage
+  Future saveToSecureStore() async {
+    await storage.write(key: "user", value: jsonEncode(toJson()));
   }
 }

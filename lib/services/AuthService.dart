@@ -1,33 +1,38 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:vacua_app/models/users.dart';
+import 'package:dio/dio.dart';
 
 // login services
 
 class AuthServices {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-
+  final _dio =
+      Dio(BaseOptions(baseUrl: "http://157.230.108.191/v1/api/console"));
   // Login user
   // will only return a string if there is an error
   Future login(String email, String password) async {
+    var data = {"email": email, "password": password};
     try {
-      UserCredential result = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
-      User? user = result.user;
-      // Todo - get user exra details and redirect to their respective screens
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found' || e.code == 'wrong-password') {
-        throw 'Invalid email or password';
+      Response res = await _dio.post("/auth/login", data: data);
+      if (res.statusCode == 200) {
+        UserModel user = UserModel.fromJson(res.data);
+        return user;
       } else {
-        throw 'There was a problem logging in. Pleas try again later';
+        throw Exception("Invalid email or password");
       }
+    } on DioError catch (e) {
+      print(e.response);
+      if (e.response?.statusCode == 400) {
+        throw Exception("Invalid email or password");
+      } else {
+        throw Exception("There was a problem logging in");
+      }
+    } catch (e) {
+      print(e.toString());
     }
   }
 
-  Future Register(String email, String password) async {
+  Future Register(String email, String password, UserModel ruser) async {
     try {
-      UserCredential result = await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
-      User? user = result.user;
-      return user;
+      //Todo - register with api
     } catch (e) {
       print(e.toString());
       return null;
@@ -37,7 +42,7 @@ class AuthServices {
   // sign out
   Future signOut() async {
     try {
-      return await _auth.signOut();
+      //Todo - Signout with api
     } catch (e) {
       print(e.toString());
       return null;

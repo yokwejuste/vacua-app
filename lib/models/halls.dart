@@ -1,7 +1,5 @@
 import "dart:ffi";
 
-import "package:cloud_firestore/cloud_firestore.dart";
-
 class Halls {
   late String hallName;
   late String hallId;
@@ -10,7 +8,7 @@ class Halls {
   late String latitude;
   late String school;
   late Bool isAvailable;
-  late Timestamp createdAt;
+  late String createdAt;
   late String gMapLink;
   late String building;
   late String createdBy;
@@ -29,8 +27,7 @@ class Halls {
     required this.createdBy,
   });
 
-
-  factory Halls.fromJson(Map<String, dynamic> json){
+  factory Halls.fromJson(Map<String, dynamic> json) {
     return Halls(
       hallName: json['hall_name'],
       hallId: json['hall_id'],

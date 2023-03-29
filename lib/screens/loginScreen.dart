@@ -1,7 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:vacua_app/main.dart';
 import 'package:vacua_app/models/users.dart';
+import 'package:vacua_app/utils.dart';
 import '../components/buttonWidget.dart';
 import '../components/inputWidget.dart';
 import '../services/AuthService.dart';
@@ -9,14 +12,14 @@ import 'classRoomScreen.dart';
 // App localizations
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  LoginScreenState createState() => LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class LoginScreenState extends ConsumerState<LoginScreen> {
   final AuthServices _auth = AuthServices();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -38,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
 
     // Validate email address
-    if (!User.validateEmail(_emailController.text)) {
+    if (!UserModel.validateEmail(_emailController.text)) {
       setState(() {
         errorText = "Invalid email provided";
         loading = false;
@@ -47,7 +50,9 @@ class _LoginScreenState extends State<LoginScreen> {
     }
 
     try {
-      await _auth.login(_emailController.text, _passwordController.text);
+      UserModel user =
+          await _auth.login(_emailController.text, _passwordController.text);
+      ref.read(userProvider.notifier).state = user;
       await Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => const ClassRooms(),
@@ -55,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
     } catch (e) {
       setState(() {
-        errorText = e.toString();
+        errorText = getExceptionMessage(e);
         loading = false;
       });
       return;
