@@ -1,16 +1,26 @@
-# vacua_app
+<h1 align="center">VACUA APP</h1></h1>
 
-A new Flutter project.
+------
 
-## Getting Started
+## About
 
-This project is a starting point for a Flutter application.
+This is the mobile application for the [Vacua Project](https://github.com/yokwejuste/Vacua-Project/)
 
-A few resources to get you started if this is your first Flutter project:
+## Installation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Assuming flutter running effectively on your computer follow the steps below
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Launch the backend locally following the instructions on it's [repository](https://github.com/yokwejuste/Vacua-Backend)
+2. Get into the clone directory
+    ```bash
+    cd Vacua-App
+    ```
+3. Install the dependencies
+    ```bash
+   flutter run pub get
+   ```
+4. Connect your emulator(android or iOS) and run
+    ```bash
+   flutter run
+   ```
+5. Chill it's done, enjoy using our app.
