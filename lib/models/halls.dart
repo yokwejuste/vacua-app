@@ -3,8 +3,8 @@ import "dart:ffi";
 class Halls {
   final String id;
   final String name;
-  final Int capacity;
-  final Bool status;
+  final int capacity;
+  final bool status;
   final String building;
   final String school;
 

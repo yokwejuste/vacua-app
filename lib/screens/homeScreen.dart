@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vacua_app/components/occupiedHallListing.dart';
 import 'package:vacua_app/main.dart';
 import 'package:vacua_app/screens/profileScreen.dart';
 import 'package:vacua_app/services/AuthService.dart';
@@ -273,7 +274,7 @@ class MainHomePageState extends ConsumerState<MainHomePage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
                 ),
-                const ClassBoxWidget(),
+                const OccupiedHallListing(),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.0265,
                 ),
