@@ -23,4 +23,10 @@ Assuming flutter running effectively on your computer follow the steps below
     ```bash
    flutter run
    ```
-5. Chill it's done, enjoy using our app.
+5. Login using existing credentials or view create existing credentials via the deployed APIs at: http://157.230.108.191/
+    ```bash
+    "email": user@topple.com,
+    "password": QwertyBoy123!
+    ```
+
+6 Chill it's done, enjoy using our app.
