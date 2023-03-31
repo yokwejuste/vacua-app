@@ -121,6 +121,7 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                   CustomInputField(
                     hintText: AppLocalizations.of(context)!.email,
                     controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
                     obscureText: false,
                   ),
                   const SizedBox(height: 20.0),

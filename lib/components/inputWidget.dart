@@ -6,6 +6,7 @@ class CustomInputField extends StatelessWidget {
   final bool obscureText;
   final String hintText;
   final Color color;
+  final TextInputType keyboardType;
 
   const CustomInputField({
     super.key,
@@ -14,6 +15,7 @@ class CustomInputField extends StatelessWidget {
     this.obscureText = false,
     this.hintText = "",
     this.color = const Color.fromRGBO(255, 255, 255, 0.8),
+    this.keyboardType = TextInputType.text,
   });
 
   @override
@@ -51,7 +53,7 @@ class CustomInputField extends StatelessWidget {
               ),
               obscureText: obscureText,
               controller: controller,
-              keyboardType: TextInputType.emailAddress,
+              keyboardType: TextInputType.text,
             ),
           ),
         ),
