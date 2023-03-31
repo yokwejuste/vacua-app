@@ -1,45 +1,28 @@
 import "dart:ffi";
 
 class Halls {
-  late String hallName;
-  late String hallId;
-  late String capacity;
-  late String longitude;
-  late String latitude;
-  late String school;
-  late Bool isAvailable;
-  late String createdAt;
-  late String gMapLink;
-  late String building;
-  late String createdBy;
+  final String id;
+  final String name;
+  final int capacity;
+  final bool status;
+  final String building;
+  final String school;
 
-  Halls({
-    required this.hallName,
-    required this.hallId,
-    required this.capacity,
-    required this.longitude,
-    required this.latitude,
-    required this.school,
-    required this.isAvailable,
-    required this.createdAt,
-    required this.gMapLink,
-    required this.building,
-    required this.createdBy,
-  });
+  Halls(
+      {required this.id,
+      required this.name,
+      required this.capacity,
+      required this.status,
+      required this.building,
+      required this.school});
 
   factory Halls.fromJson(Map<String, dynamic> json) {
     return Halls(
-      hallName: json['hall_name'],
-      hallId: json['hall_id'],
-      capacity: json['capacity'],
-      longitude: json['longitude'],
-      latitude: json['latitude'],
-      school: json['school'],
-      isAvailable: json['is_available'],
-      createdAt: json['created_at'],
-      gMapLink: json['g_map_link'],
-      building: json['building'],
-      createdBy: json['created_by'],
-    );
+        id: json['id'],
+        name: json['name'],
+        capacity: json['capacity'],
+        status: json['status'],
+        building: json['building'],
+        school: json['school']);
   }
 }

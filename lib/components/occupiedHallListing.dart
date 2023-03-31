@@ -6,21 +6,21 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:vacua_app/models/halls.dart';
 import 'package:vacua_app/services/HallService.dart';
 
-class ClassBoxWidget extends ConsumerStatefulWidget {
-  const ClassBoxWidget({super.key});
+class OccupiedHallListing extends ConsumerStatefulWidget {
+  const OccupiedHallListing({super.key});
 
   @override
-  ClassBoxWidgetState createState() => ClassBoxWidgetState();
+  OccupiedHallListingState createState() => OccupiedHallListingState();
 }
 
-class ClassBoxWidgetState extends ConsumerState<ClassBoxWidget> {
+class OccupiedHallListingState extends ConsumerState<OccupiedHallListing> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       height: 150.0,
       child: FutureBuilder<List<dynamic>>(
-          future: HallService(ref: ref).getHall(),
+          future: HallService(ref: ref).getOccupiedHalls(),
           builder: (context, snapshot) {
             print(snapshot);
             if (snapshot.hasData) {

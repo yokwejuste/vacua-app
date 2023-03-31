@@ -27,6 +27,17 @@ class UserModel {
     );
   }
 
+  factory UserModel.fromSecureStorage(String userString) {
+    Map<String, dynamic> userJson = jsonDecode(userString);
+
+    return UserModel(
+      id: userJson['id'],
+      token: userJson['token'],
+      email: userJson['email'],
+      fullName: userJson['full_name'],
+    );
+  }
+
   Map<String, dynamic> toJson() {
     return {
       "id": id,
@@ -48,5 +59,10 @@ class UserModel {
   //write to secure storage
   Future saveToSecureStore() async {
     await storage.write(key: "user", value: jsonEncode(toJson()));
+  }
+
+  // delete user from secure storage
+  Future deleteFromSecureStore() async {
+    await storage.delete(key: "user");
   }
 }

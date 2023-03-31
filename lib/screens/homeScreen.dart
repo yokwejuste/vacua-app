@@ -1,22 +1,27 @@
 import "package:flutter/material.dart";
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vacua_app/components/occupiedHallListing.dart';
+import 'package:vacua_app/main.dart';
 import 'package:vacua_app/screens/profileScreen.dart';
+import 'package:vacua_app/services/AuthService.dart';
+import 'package:vacua_app/utils.dart';
 import '../components/classBoxesWidget.dart';
 import 'SettingsPage.dart';
 // App localizations
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class MainHomePage extends StatefulWidget {
+class MainHomePage extends ConsumerStatefulWidget {
   const MainHomePage({super.key});
 
   @override
-  State<MainHomePage> createState() => _MainHomePageState();
+  MainHomePageState createState() => MainHomePageState();
 }
 
-class _MainHomePageState extends State<MainHomePage> {
+class MainHomePageState extends ConsumerState<MainHomePage> {
   @override
   Widget build(BuildContext context) {
-    String user = "John Doe";
+    String user = ref.read(userProvider)!.fullName;
     return SafeArea(
       child: ListView(
         padding: const EdgeInsets.all(8.0),
@@ -92,8 +97,16 @@ class _MainHomePageState extends State<MainHomePage> {
                       ),
                       PopupMenuItem(
                         child: Text(AppLocalizations.of(context)!.logout),
-                        onTap: () {
-                          // Navigator.pushNamed(context, '/login');
+                        onTap: () async {
+                          try {
+                            await AuthServices().signOut(context, ref);
+                          } catch (e) {
+                            AlertDialog(
+                              title: const Text("Error"),
+                              content: Text(getExceptionMessage(e)),
+                            );
+                            print(e);
+                          }
                         },
                       ),
                     ],
@@ -261,7 +274,7 @@ class _MainHomePageState extends State<MainHomePage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
                 ),
-                const ClassBoxWidget(),
+                const OccupiedHallListing(),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.0265,
                 ),
@@ -283,5 +296,5 @@ class _MainHomePageState extends State<MainHomePage> {
         ],
       ),
     );
-  } 
+  }
 }
