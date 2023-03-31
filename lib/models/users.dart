@@ -60,4 +60,9 @@ class UserModel {
   Future saveToSecureStore() async {
     await storage.write(key: "user", value: jsonEncode(toJson()));
   }
+
+  // delete user from secure storage
+  Future deleteFromSecureStore() async {
+    await storage.delete(key: "user");
+  }
 }

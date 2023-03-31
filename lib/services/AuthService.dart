@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:vacua_app/main.dart';
 import 'package:vacua_app/models/users.dart';
 import 'package:dio/dio.dart';
 
@@ -40,12 +43,16 @@ class AuthServices {
   }
 
   // sign out
-  Future signOut() async {
+  Future signOut(BuildContext context, WidgetRef ref) async {
+    UserModel user = ref.read(userProvider)!;
+    Map<String, String> data = {"token": user.token, "message": "logout"};
     try {
-      //Todo - Signout with api
+      await _dio.post("/auth/logout", data: data);
+      await user.deleteFromSecureStore();
+      ref.read(userProvider.notifier).state = null;
+      Navigator.pushNamedAndRemoveUntil(context, "/login", (route) => false);
     } catch (e) {
-      print(e.toString());
-      return null;
+      throw Exception("There was a problem logging out");
     }
   }
 }

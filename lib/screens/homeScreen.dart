@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vacua_app/main.dart';
 import 'package:vacua_app/screens/profileScreen.dart';
+import 'package:vacua_app/services/AuthService.dart';
+import 'package:vacua_app/utils.dart';
 import '../components/classBoxesWidget.dart';
 import 'SettingsPage.dart';
 // App localizations
@@ -94,8 +96,16 @@ class MainHomePageState extends ConsumerState<MainHomePage> {
                       ),
                       PopupMenuItem(
                         child: Text(AppLocalizations.of(context)!.logout),
-                        onTap: () {
-                          // Navigator.pushNamed(context, '/login');
+                        onTap: () async {
+                          try {
+                            await AuthServices().signOut(context, ref);
+                          } catch (e) {
+                            AlertDialog(
+                              title: const Text("Error"),
+                              content: Text(getExceptionMessage(e)),
+                            );
+                            print(e);
+                          }
                         },
                       ),
                     ],
