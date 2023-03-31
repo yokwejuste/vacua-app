@@ -36,7 +36,7 @@ class HallService {
 
   Future<List<dynamic>> getOccupiedHalls() async {
     try {
-      Response res = await _dio.get("/reservations/occupied_halls/");
+      Response res = await _dio.get("/halls/occupied_halls");
       final rhalls = await res.data;
       List<Halls> hls = [];
       rhalls.forEach((h) {
