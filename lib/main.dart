@@ -23,9 +23,11 @@ final userProvider = StateProvider<UserModel?>((ref) => null);
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(ProviderScope(
-    child: MyApp(),
-  ));
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends ConsumerWidget {
